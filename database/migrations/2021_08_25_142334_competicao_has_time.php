@@ -13,7 +13,12 @@ class CompeticaoHasTime extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('competicoes_has_time', function (Blueprint $table) {
+            $table->id();
+            $table->foreignId('competicao_id')->constrained('competicoes');
+            $table->foreignId('time_id')->constrained('times');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class CompeticaoHasTime extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('competicao_has_time');
     }
 }

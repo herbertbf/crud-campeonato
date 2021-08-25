@@ -13,7 +13,12 @@ class Time extends Migration
      */
     public function up()
     {
-        //
+            Schema::create('times', function (Blueprint $table) {
+                $table->id();
+                $table->string('nome');
+                $table->timestamps();
+            });
+        
     }
 
     /**
@@ -23,6 +28,6 @@ class Time extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('times');
     }
 }

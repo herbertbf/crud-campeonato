@@ -13,7 +13,11 @@ class Competicao extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('competicoes', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +27,6 @@ class Competicao extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('competicoes');
     }
 }
