@@ -7,6 +7,10 @@
     <title>Document</title>
 </head>
 <body>
+    @foreach ($times as $time )
+    <p>{{$time -> nome }}</p>
+    @endforeach
+        
     <h1>TESTE DO INDEXXXXXXXX</h1>
 </body>
 </html>
