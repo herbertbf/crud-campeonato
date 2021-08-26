@@ -18,7 +18,7 @@ class TipoCompeticaoSeeder extends Seeder
             'Campeonato',
         );
         foreach($tipocompeticoes as $tipocompeticao){
-            DB::table('tipo_competicoes')->insert([ 
+            \DB::table('tipo_competicoes')->insert([ 
                 'nome' => $tipocompeticao, 
             ]);
         }

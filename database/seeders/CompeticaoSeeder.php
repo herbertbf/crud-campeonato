@@ -19,7 +19,7 @@ class CompeticaoSeeder extends Seeder
             'Copa do Brasil',
         );
         foreach($competicoes as $competicao){
-            DB::table('competicoes')->insert([ 
+            \DB::table('competicoes')->insert([ 
                 'nome' => $competicao, 
             ]);
         }
