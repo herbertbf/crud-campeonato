@@ -13,15 +13,22 @@ class CompeticaoSeeder extends Seeder
      */
     public function run()
     {
-        $competicoes = array(
-            'Libertadores',
-            'Brasileirao',
-            'Copa do Brasil',
-        );
-        foreach($competicoes as $competicao){
-            \DB::table('competicoes')->insert([ 
-                'nome' => $competicao, 
-            ]);
-        }
+       
+        \DB::table('competicoes')->insert([ 
+            'nome' => 'Libertadores',
+            'tipo_competicao_id' => 1,
+        ]);
+
+        \DB::table('competicoes')->insert([ 
+            'nome' => 'Brasileirao',
+            'tipo_competicao_id' => 1,
+        ]);
+
+        \DB::table('competicoes')->insert([ 
+            'nome' => 'Copa do BR',
+            'tipo_competicao_id' => 2,
+        ]);
+
+
     }
 }
