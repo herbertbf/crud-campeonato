@@ -28,16 +28,5 @@ class TipoCompeticao extends Model
         'updated_at',
      ];
 
-     public function getNome()
-    {
-        return $this->nome;
-    }
-
-    
-    public function getId()
-    {
-        return $this->id;
-    }
-
     
 }

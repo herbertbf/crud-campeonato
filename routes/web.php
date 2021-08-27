@@ -16,6 +16,13 @@ use App\Http\Controllers\TimeController;
 
 Route::get('/', [ TimeController::class, 'index']);
 
-Route::get('/form', [ TimeController::class, 'form']);
+Route::get('/form', [ TimeController::class, 'create'])->name('time.create');
+
+Route::post('/store', [ TimeController::class, 'store'])->name('time.store');
+
+Route::match(array('PUT', 'PATCH'), "/{id}", [TimeController::class, 'update'])->name('time.update');
+
+Route::get('/show/{id}',  [ TimeController::class, 'show'])->name('time.show');
+
 
 
