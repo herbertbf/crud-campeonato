@@ -31,10 +31,17 @@
                     <td>{{$time->competicao->first()->nome}}</td>
                     <td>{{$time->competicao->first()->tipocompeticao}}</td>
                     <td>
-                       <a href="{{route('time.show', $time->id)}}"> OK </a>
-                    </td>      
-                  </tr>
-        
+                       <a href="{{route('time.show', $time->id)}}">Ver</a>
+                    </td>
+                    <td>
+                      <a href="{{route('time.edit', $time->id)}}">Editar</a>
+                   </td>
+                   <td>
+                    {!! Form::open(['route' => ['time.destroy', $time->id], 'method' => 'DELETE']) !!}
+						          {!! Form::submit('Remover') !!}
+				          	{!! Form::close() !!}
+                 </td>
+                </tr>
                 @endforeach
             </tbody>
           </table>

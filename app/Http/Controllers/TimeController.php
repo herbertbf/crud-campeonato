@@ -62,9 +62,10 @@ class TimeController extends Controller
             'nome' => $request->nome,
         ]);
         $time->competicao = $request->competicao;
-        $competicoes = $this->competicoes;
+     
 
-        return view('form', compact('competicoes', 'time'));
+        $times = $this->times->all();
+        return view('index', compact('times'));
     }
 
     /**
@@ -77,8 +78,11 @@ class TimeController extends Controller
     {
         $time = $this->times->find($id);
         $competicoes = $this->competicoes;
-        return view('form', compact('competicoes', 'time'));
+        $form = 'disabled';
+        return view('form', compact('competicoes', 'time', 'form'));
     }
+    
+    
 
     /**
      * Show the form for editing the specified resource.
@@ -88,7 +92,9 @@ class TimeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $time = $this->times->find($id);
+        $competicoes = $this->competicoes;
+        return view('form', compact('competicoes', 'time'));
     }
 
     /**
@@ -114,8 +120,13 @@ class TimeController extends Controller
      */
     public function destroy($id)
     {
-        //
+       $time = $this->times->find($id);
+       $deleted = $time->delete();
+       $times = $this->times->all();
+       return view('index', compact('times'));
     }
+
+
 
     public function form(){
         return view('form');

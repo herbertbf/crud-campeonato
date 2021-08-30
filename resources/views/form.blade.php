@@ -19,10 +19,10 @@
             {!!Form::open(['route' => 'time.store', 'method' => 'POST', 'name' => 'form']) !!}
         @endif
                 {!!Form::label('nome', 'Nome:', ['class' => 'form-check-label'])!!}
-                {!!Form::text('nome',   isset($time) ? $time->nome : null, ['class' => 'form-control','placeholder' => 'Somente Letras'])!!}
+                {!!Form::text('nome',   isset($time) ? $time->nome : null, ['class' => 'form-control','placeholder' => 'Somente Letras',  isset($form) ? $form : null])!!}
                 {!!Form::label('competicao', 'Competição:', ['class' => 'form-check-label'])!!}
                 {!!Form::select('competicao', $competicoes, isset($time) ?$time->competicao->first()->id : null, ['class' => 'form-control', isset($form) ? $form : null])!!}
-                {!! Form::submit('Enviar', ['class' => 'btn btn-success']); !!}
+                {!! Form::submit('Enviar', ['class' => 'btn btn-success', isset($form) ? $form : null]); !!}
                 {!! Form::close() !!} 
 
     </div>
