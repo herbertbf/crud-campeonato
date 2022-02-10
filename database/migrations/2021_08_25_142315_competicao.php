@@ -13,7 +13,12 @@ class Competicao extends Migration
      */
     public function up()
     {
-        //
+        Schema::create('competicoes', function (Blueprint $table) {
+            $table->id();
+            $table->string('nome');
+            $table->foreignId('tipo_competicao_id')->constrained('tipo_competicoes');
+            $table->timestamps();
+        });
     }
 
     /**
@@ -23,6 +28,6 @@ class Competicao extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('competicoes');
     }
 }
