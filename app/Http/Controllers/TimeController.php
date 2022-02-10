@@ -14,9 +14,6 @@ class TimeController extends Controller
      */
     private $times, $competicoes;
 
-
-
-
     /**
      * Instantiate a new controller instance.
      *
@@ -62,8 +59,6 @@ class TimeController extends Controller
             'nome' => $request->nome,
         ]);
         $time->competicao = $request->competicao;
-     
-
         $times = $this->times->all();
         return view('index', compact('times'));
     }
@@ -81,8 +76,8 @@ class TimeController extends Controller
         $form = 'disabled';
         return view('form', compact('competicoes', 'time', 'form'));
     }
-    
-    
+
+
 
     /**
      * Show the form for editing the specified resource.
@@ -108,8 +103,8 @@ class TimeController extends Controller
     {
         $time = $this->times->find($id);
         $time->update($request->all());
-        $competicoes = $this->competicoes;
-        return view('form', compact('competicoes', 'time'));
+        $times = $this->times->all();
+        return view('index', compact('times'));
     }
 
     /**
