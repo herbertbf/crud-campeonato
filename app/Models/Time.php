@@ -28,12 +28,12 @@ class Time extends Model
      */
     protected $hidden = [
         'competicaoRelationship',
-        'created_at', 
+        'created_at',
         'updated_at',
-        
+
      ];
 
-    
+
     /**
      * The accessors to append to the model's array form.
      *
@@ -42,7 +42,7 @@ class Time extends Model
     protected $appends = [
         'competicao'
 
-    ]; 
+    ];
      /**
      * Get the Time Competicao.
      *
@@ -69,7 +69,7 @@ class Time extends Model
      * @return void
      */
     public function setCompeticaoAttribute($value) {
-        $this->competicaoRelationship()->attach($value);
+        $this->competicaoRelationship()->sync($value);
     }
 
 
@@ -78,6 +78,6 @@ class Time extends Model
     }
 
 
-    
+
 
 }
